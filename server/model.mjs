@@ -1,9 +1,11 @@
-import mongoose from 'mongoose';
+import mongoose, { mongo } from 'mongoose';
 import 'dotenv/config';
 
 // connect to db
 mongoose.connect(
-    process.env.MONGODB_CONNECT_STRING
+    process.env.MONGODB_CONNECT_STRING,
+    { useNewUrlParser: true, 
+    useUnifiedTopology: true }
 );
 
 const db = mongoose.connection;
@@ -13,10 +15,120 @@ db.once("open", (err) => {
     if (err) {
         res.status(500).json({ error: "500:Connection to server failed." });
     } else {
-        console.log("Successfully connected to MongoDB.");
+        console.log("Successfully connected to MongoDB.")
+    };
+});
+
+
+const userSchema = new mongoose.Schema({
+    User: String,
+
+    data: {
+        last_update: Date,
+        depth: Number,
+        balance: Number,
+        value: Number,
+        patreon: Number,
+        bank: Number,
+        clan: String,
+        'clan invites': [String],
+
+        daily: {
+            streak: Number,
+            'last claim': Date
+        },
+
+        rebirths: Number,
+        stars: Number,
+        multiplier: Number,
+
+        ores: {
+            Coal: Number,
+            Iron: Number,
+            Copper: Number,
+            Gold: Number,
+            Lapis: Number,
+            Diamond: Number,
+            Emerald: Number
+        },
+
+        town: {
+            workers: Number
+        },
+
+        minecart: String,
+        equipped: String,
+
+        pickaxe: {
+            Fists: Boolean,
+            'Wooden pickaxe': Boolean,
+            'Iron pickaxe': Boolean,
+            'Steel pickaxe': Boolean,
+            'Fiberglass pickaxe': Boolean,
+            'Gold pickaxe': Boolean,
+            'Diamond pickaxe': Boolean,
+            'Obsidian pickaxe': Boolean,
+            'Patreon pickaxe': Boolean,
+            'Osmium pickaxe': Boolean,
+            'Netherite pickaxe': Boolean,
+            'Supreme pickaxe': Boolean,
+            'Lam Axe': Boolean,
+            'Cookie Pickaxe': Boolean,
+            'Supporter pickaxe': Boolean
+        },
+
+        stargrades: {
+            'drill count': Number,
+            'drill upgrade': Number
+        },
+
+        stocks: {
+            Trades: Number,
+            Coal: {
+                Shares: Number,
+                'Total Cost': Number
+            },
+            Iron: {
+                Shares: Number,
+                'Total Cost': Number
+            },
+            Copper: {
+                Shares: Number,
+                'Total Cost': Number
+            },
+            Gold: {
+                Shares: Number,
+                'Total Cost': Number
+            },
+            Lapis: {
+                Shares: Number,
+                'Total Cost': Number
+            },
+            Diamond: {
+                Shares: Number,
+                'Total Cost': Number
+            },
+            Emerald: {
+                Shares: Number,
+                'Total Cost': Number
+            }
+        },
+
+        lifetime: {
+            ores: Number,
+            balance: Number,
+            earnings: Number,
+            'market gains': Number
+        }
     }
 });
 
-// Get leaderboard
+const User = mongoose.model('User', userSchema, 'users');
 
-pipeline = {}
+// User.find({})
+//     .then(result => {
+//         console.log(result);
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     });
