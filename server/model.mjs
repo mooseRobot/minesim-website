@@ -125,10 +125,27 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema, 'users');
 
-// User.find({})
-//     .then(result => {
-//         console.log(result);
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     });
+async function fetchTopPlayers() {
+    const topPlayerPipeline = [
+        {
+            $sort: { "data.balance": -1 }
+        },
+        {
+            $limit: 25
+        }
+    ];
+
+    try {
+        const results = await User.aggregate(topPlayerPipeline).exec();
+        return results;
+    } catch (err) {
+        console.log('Error occurred:', err);
+        return null;
+    }
+}
+
+// Call function
+// (async () => {
+//     const sortedUsers = await fetchTopPlayers();
+//     console.log(sortedUsers);
+// })();
