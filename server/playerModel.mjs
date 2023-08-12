@@ -205,7 +205,7 @@ async function fetchTopPlayers() {
 
 async function saveToJSONFile(data, filename) {
     await fs.writeFile(filename, JSON.stringify(data, null, 4));
-    console.log('Updated players leaderboard')
+    console.log('Updated top players leaderboard')
     
 }
 
