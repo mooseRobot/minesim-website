@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
-import * as users from './model.mjs'
+import * as leaderboard from './playerModel.mjs'
 
 const PORT = process.env.PORT;
 const app = express();
