@@ -169,15 +169,38 @@ async function saveToJSONFile(data, filename) {
 //     await console.log(sortedUsers);
 // })();
 
-// function getPlayerIdAndBalance () {
-//     const arr = [];
-//     let user = {};
-//     for (let i = 0; i < data.length; i++) {
-//         user.wealth = data[i].totalWealth
-//         console.log(user)
-//     };
-// };
+function getPlayerIdAndBalance () {
+    const arr = [];
+    let user = {};
+    for (let i = 0; i < data.length; i++) {
+        // Initial info
+        user.id = data[i].User
+        user.wealth = data[i].totalWealth
+        user.balance = data[i].data.balance
+        user.bank = data[i].data.bank
+        user.rebirths = data[i].data.rebirths
+        user.clan = data[i].data.clan
 
+        // More info
+        user.stars = data[i].data.stars
+        user.multiplier = data[i].data.multiplier
+        user.workers = data[i].data.town.workers
+        user.lifetime = {}
+        user.lifetime.balance = data[i].data.lifetime.balance
+        user.lifetime.earnings = data[i].data.lifetime.earnings
+        user.lifetime.market_gains = data[i].data.lifetime["market gains"]
+        arr.push(user)
+    };
+    return arr
+};
 
+// let player = {}
+
+// player.lifetime = {}
+// player.lifetime.market_gains = data[0].data.lifetime["market gains"]
+
+// console.log(player)
+
+console.log(getPlayerIdAndBalance()[0])
 
 
