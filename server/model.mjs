@@ -1,5 +1,7 @@
 import mongoose, { mongo } from 'mongoose';
 import 'dotenv/config';
+import { promises as fs } from 'fs';
+import data from './output/topPlayers.json' assert { type: 'json' };
 
 // connect to db
 mongoose.connect(
@@ -128,7 +130,14 @@ const User = mongoose.model('User', userSchema, 'users');
 async function fetchTopPlayers() {
     const topPlayerPipeline = [
         {
-            $sort: { "data.balance": -1 }
+            $addFields: {
+                "totalWealth": {
+                    $add: ["$data.balance", "$data.bank"]
+                }
+            }
+        },
+        {
+            $sort: { "totalWealth": -1 }
         },
         {
             $limit: 25
@@ -144,8 +153,31 @@ async function fetchTopPlayers() {
     }
 }
 
+async function saveToJSONFile(data, filename) {
+    await fs.writeFile(filename, JSON.stringify(data, null, 4));
+}
+
+
 // Call function
 // (async () => {
 //     const sortedUsers = await fetchTopPlayers();
-//     console.log(sortedUsers);
+//     await saveToJSONFile(sortedUsers, './output/topPlayers.json');
 // })();
+
+// (async () => {
+//     const sortedUsers = await fetchTopPlayers();
+//     await console.log(sortedUsers);
+// })();
+
+// function getPlayerIdAndBalance () {
+//     const arr = [];
+//     let user = {};
+//     for (let i = 0; i < data.length; i++) {
+//         user.wealth = data[i].totalWealth
+//         console.log(user)
+//     };
+// };
+
+
+
+
