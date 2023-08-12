@@ -8,19 +8,14 @@ app.use(express.json())
 
 // Retrieve controller
 app.get('/topleaderboard', (req, res) => {
-    leaderboard.getPlayerIdAndStats()
-    .then(players => {
-        if (players !== null) {
-            res.json(players);
-        } else {
-            res.status(404).json({ Error: 'document not found.' });
-        }
-    })
-    .catch(error => {
-        console.log(error);
-        res.status(400).json({ Error: 'retrieve document failed.' });
-    })
-})
+    const players = leaderboard.getPlayerIdAndStats();
+
+    if (players && players.length > 0) {
+        res.json(players);
+    } else {
+        res.status(404).json({ Error: 'No players found.' });
+    }
+});
  
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}.`)

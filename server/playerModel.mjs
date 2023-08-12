@@ -2,6 +2,7 @@ import mongoose, { mongo } from 'mongoose';
 import 'dotenv/config';
 import { promises as fs } from 'fs';
 import data from './output/topPlayers.json' assert { type: 'json' };
+import { Client, Events, GatewayIntentBits } from 'discord.js'
 
 // connect to db
 mongoose.connect(
@@ -21,6 +22,18 @@ db.once("open", (err) => {
     };
 });
 
+
+// Connect to discord
+const { token } = process.env.DISCORD_TOKEN;
+
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+client.once(Events.ClientReady, c => {
+	console.log(`Ready! Logged in as ${c.user.tag}`);
+    client.user.setActivity('/mine', { type: 'PLAYING' });
+});
+
+// Log in to discord
+client.login(token);
 
 const userSchema = new mongoose.Schema({
     User: String,
@@ -129,9 +142,11 @@ const User = mongoose.model('User', userSchema, 'users');
 
 function getPlayerIdAndStats () {
     const arr = [];
-    let user = {};
     for (let i = 0; i < data.length; i++) {
+        let user = {};
         // Initial info
+        user.username = data[i].username
+        user.avatarURL = data[i].avatarURL
         user.id = data[i].User
         user.wealth = data[i].totalWealth
         user.balance = data[i].data.balance
@@ -172,7 +187,16 @@ async function fetchTopPlayers() {
 
     try {
         const results = await User.aggregate(topPlayerPipeline).exec();
-        return results;
+        const augmentedResults = [];
+        for (let player of results) {
+            const user = await client.users.fetch(player.User);  // Assuming player.User contains the Discord user ID
+            player.username = user.username;
+            player.avatarURL = user.displayAvatarURL({ format: 'png', dynamic: true });
+            augmentedResults.push(player);
+        };
+
+        return augmentedResults;
+
     } catch (err) {
         console.log('Error occurred:', err);
         return null;
@@ -181,6 +205,7 @@ async function fetchTopPlayers() {
 
 async function saveToJSONFile(data, filename) {
     await fs.writeFile(filename, JSON.stringify(data, null, 4));
+    console.log('Updated players leaderboard')
     
 }
 
@@ -194,6 +219,5 @@ updateTopPlayers();
 
 // Set an interval to call the function every hour
 setInterval(updateTopPlayers, 3600000);
-
 
 export { getPlayerIdAndStats }
