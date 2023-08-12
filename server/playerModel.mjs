@@ -196,6 +196,4 @@ updateTopPlayers();
 setInterval(updateTopPlayers, 3600000);
 
 
-
-
 export { getPlayerIdAndStats }
