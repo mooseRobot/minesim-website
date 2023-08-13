@@ -273,7 +273,19 @@ async function fetchTopServers() {
     for (let server of results) {
         try {
             const guild = await client.guilds.fetch(server.server.toString());
+            server.id = server.server;
             server.serverName = guild.name;
+
+            // If server name is undefined, then the bot was kicked from the server
+            if (server.serverName === undefined) {
+                try {
+                    await Server.deleteOne({ _id: server._id });
+                    console.log(`Server with ID ${server.server} has been removed from the database.`);
+                } catch (deleteErr) {
+                    console.log('Error while deleting server:', deleteErr);
+                };
+            };
+            
             server.iconURL = guild.iconURL({});
             server.memberCount = guild.memberCount;
             if (server.iconURL === null) {
@@ -301,10 +313,12 @@ async function fetchTopServers() {
 async function updateTopServers() {
     let sortedServers = await fetchTopServers();
     if (sortedServers.length < 25) {
-        sortedServers = await fetchTopServers();
+        updateTopServers();
+        console.log('Servers list was less than 25, running again')
+    } else {
+        await saveToJSONFile(sortedServers, './output/topServers.json');
+        console.log('Updated top servers leaderboard');
     };
-    await saveToJSONFile(sortedServers, './output/topServers.json');
-    console.log('Updated top servers leaderboard');
 };
 
 
