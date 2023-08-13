@@ -275,6 +275,7 @@ async function fetchTopServers() {
             const guild = await client.guilds.fetch(server.server.toString());
             server.serverName = guild.name;
             server.iconURL = guild.iconURL({});
+            server.memberCount = guild.memberCount;
             if (server.iconURL === null) {
                 server.iconURL = 'https://www.freepnglogos.com/uploads/discord-logo-png/seven-kingdoms-9.png'
             }
@@ -312,12 +313,13 @@ function getServerAndStats() {
     for (let i = 0; i < serverData.length; i++) {
         let server = {};
         // Initial info
-        server.name = serverData[i].serverName
-        server.iconURL = serverData[i].iconURL
-        server.balance = serverData[i].data.balance
-        arr.push(server)
+        server.name = serverData[i].serverName;
+        server.iconURL = serverData[i].iconURL;
+        server.balance = serverData[i].data.balance;
+        server.memberCount = serverData[i].memberCount;
+        arr.push(server);
     };
-    return arr
+    return arr;
 };
 
 
