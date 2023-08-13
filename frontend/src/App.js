@@ -3,7 +3,7 @@ import './App.css';
 
 // Import pages
 import Nav from './components/Nav.js'
-import Leaderboard from './pages/PlayersLeaderboard.js'
+import Leaderboard from './pages/Leaderboard.js'
 
 function App() {
   return (

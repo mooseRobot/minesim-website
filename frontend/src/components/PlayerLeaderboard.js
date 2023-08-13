@@ -1,7 +1,7 @@
 import React from 'react';
 import './leaderboardStyles.css';
 
-const NewLeaderboard = ({ players }) => {
+const PlayerLeaderboard = ({ players }) => {
 
   return (
     <div className="leaderboardContainer">
@@ -47,4 +47,4 @@ const NewLeaderboard = ({ players }) => {
   );
 };
 
-export default NewLeaderboard;
+export default PlayerLeaderboard;
