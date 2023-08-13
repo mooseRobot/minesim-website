@@ -7,6 +7,7 @@ function PlayerList({ players }) {
             <caption>Top 25 players</caption>
             <thead>
                 <tr>
+                    <td>Rank</td>
                     <td>Name</td>
                     <td>Picture</td>
                     <td>Wealth</td>
@@ -19,6 +20,7 @@ function PlayerList({ players }) {
                 {players.map((player, i) =>
                 <Player
                     player={player}
+                    rank={i + 1}
                     key={i}
                 />)}
             </tbody>

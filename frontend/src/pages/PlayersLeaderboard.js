@@ -1,7 +1,7 @@
 // Top 25 players Leaderboard
 
 import { React, useState, useEffect } from 'react';
-import PlayerList from '../components/PlayerList.js'
+import NewLeaderboard from '../components/NewLeaderboard.js';
 
 function Leaderboard() {
     const [leaderboard, setLeaderboard] = useState([])
@@ -12,17 +12,14 @@ function Leaderboard() {
         setLeaderboard(data);
     };
 
-    // Load all players
     useEffect(() => { loadLeaderboard(); }, [])
-    console.log(leaderboard)
+
     return (
         <>
-        <h2>Leaderboard</h2>
-        <PlayerList
-            players={leaderboard}
-        />
+        <h2>Player Leaderboard</h2>
+        <NewLeaderboard players={leaderboard} />
         </>
     )
 }
 
-export default Leaderboard
+export default Leaderboard;

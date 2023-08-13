@@ -89,7 +89,7 @@ nav a:hover::before {
   float: left;
   padding: 10px 0;
 }
-
+/* 
 td, th {
   border: 1px solid #777;
   padding: 0.5rem;
@@ -108,10 +108,11 @@ thead {
   background: #2e333c;
 }
 
+
 .player_leaderboard {
   margin-left: auto ;
   margin-right: auto;
-}
+} */
 
 
 /* Add a color to the active/current link */
