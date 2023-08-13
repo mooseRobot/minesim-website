@@ -18,6 +18,8 @@ function Leaderboard() {
         <>
         <h2>Player Leaderboard</h2>
         <NewLeaderboard players={leaderboard} />
+        &nbsp;
+        <h2>Server Leaderboard</h2>
         </>
     )
 }

@@ -35,6 +35,13 @@ client.once(Events.ClientReady, c => {
 // Log in to discord
 client.login(token);
 
+
+// ********************************
+//
+// Setting up player leaderboard
+//
+// ********************************
+
 const userSchema = new mongoose.Schema({
     User: String,
 
@@ -201,18 +208,41 @@ async function fetchTopPlayers() {
         console.log('Error occurred:', err);
         return null;
     }
-}
+};
 
 async function saveToJSONFile(data, filename) {
     await fs.writeFile(filename, JSON.stringify(data, null, 4));
     console.log('Updated top players leaderboard')
-    
-}
+};
 
 async function updateTopPlayers() {
     const sortedUsers = await fetchTopPlayers();
     await saveToJSONFile(sortedUsers, './output/topPlayers.json');
-}
+};
+
+
+// ********************************
+//
+// Setting up server leaderboard
+//
+// ********************************
+
+const serverSchema = new mongoose.Schema({
+    server: {
+      type: Number,
+      required: true
+    },
+    data: {
+      balance: {
+        type: Number,
+        required: true
+      }
+    }
+  });
+  
+  const Server = mongoose.model('Server', serverSchema);
+
+
 
 // Call the function immediately upon start
 updateTopPlayers();

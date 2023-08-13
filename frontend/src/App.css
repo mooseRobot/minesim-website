@@ -81,23 +81,13 @@ nav a:hover::before {
 }
 
 .container {
-  width: 80%;
+  max-width: 80%;
   margin: 0 auto;
 }
 
 .logo {
   float: left;
   padding: 10px 0;
-}
-
-/* Makes text unselectable */
-*.unselectable {
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-
-  -ms-user-select: none;
-  user-select: none;
 }
 
 /* Add a color to the active/current link */
