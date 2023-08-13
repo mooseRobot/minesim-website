@@ -19,9 +19,7 @@ function Nav() {
                 <li><Link to="/leaderboard">Leaderboard</Link></li>
                 <li><Link to="/">Pitchers</Link></li>
               </ul>
-            
 
-              {/* <Link to="/">Login</Link> */}
           </nav>
       </div>
     </header>
