@@ -14,11 +14,19 @@ app.get('/playerleaderboard', (req, res) => {
         res.json(players);
     } else {
         res.status(404).json({ Error: 'No players found.' });
-    }
+    };
 });
 
 // Retrieve server leaderboard
-app.get('')
+app.get('/serverleaderboard', (req, res) => {
+    const servers = leaderboard.getServerAndStats();
+
+    if (servers && servers.length > 0) {
+        res.json(servers);
+    } else {
+        res.status(404).json({ Error: 'No servers found.' });
+    };
+});
  
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}.`)

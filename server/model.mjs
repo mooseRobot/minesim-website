@@ -307,7 +307,7 @@ async function updateTopServers() {
 };
 
 
-function getServerAndStats () {
+function getServerAndStats() {
     const arr = [];
     for (let i = 0; i < serverData.length; i++) {
         let server = {};
@@ -319,6 +319,7 @@ function getServerAndStats () {
     };
     return arr
 };
+
 
 // Call the function immediately upon start
 updateTopPlayers();
