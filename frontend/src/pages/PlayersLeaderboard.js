@@ -7,7 +7,7 @@ function Leaderboard() {
     const [leaderboard, setLeaderboard] = useState([])
 
     const loadLeaderboard = async () => {
-        const response = await fetch('/topleaderboard');
+        const response = await fetch('/playerleaderboard');
         const data = await response.json();
         setLeaderboard(data);
     };

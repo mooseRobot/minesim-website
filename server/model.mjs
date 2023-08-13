@@ -1,7 +1,8 @@
 import mongoose, { mongo } from 'mongoose';
 import 'dotenv/config';
 import { promises as fs } from 'fs';
-import data from './output/topPlayers.json' assert { type: 'json' };
+import playerData from './output/topPlayers.json' assert { type: 'json' };
+import serverData from './output/topServers.json' assert { type: 'json' };
 import { Client, Events, GatewayIntentBits } from 'discord.js'
 
 // connect to db
@@ -156,26 +157,26 @@ const User = mongoose.model('User', userSchema, 'users');
 
 function getPlayerIdAndStats () {
     const arr = [];
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < playerData.length; i++) {
         let user = {};
         // Initial info
-        user.username = data[i].username
-        user.avatarURL = data[i].avatarURL
-        user.id = data[i].User
-        user.wealth = data[i].totalWealth
-        user.balance = data[i].data.balance
-        user.bank = data[i].data.bank
-        user.rebirths = data[i].data.rebirths
-        user.clan = data[i].data.clan
+        user.username = playerData[i].username
+        user.avatarURL = playerData[i].avatarURL
+        user.id = playerData[i].User
+        user.wealth = playerData[i].totalWealth
+        user.balance = playerData[i].data.balance
+        user.bank = playerData[i].data.bank
+        user.rebirths = playerData[i].data.rebirths
+        user.clan = playerData[i].data.clan
 
         // More info
-        user.stars = data[i].data.stars
-        user.multiplier = data[i].data.multiplier
-        user.workers = data[i].data.town.workers
+        user.stars = playerData[i].data.stars
+        user.multiplier = playerData[i].data.multiplier
+        user.workers = playerData[i].data.town.workers
         user.lifetime = {}
-        user.lifetime.balance = data[i].data.lifetime.balance
-        user.lifetime.earnings = data[i].data.lifetime.earnings
-        user.lifetime.market_gains = data[i].data.lifetime["market gains"]
+        user.lifetime.balance = playerData[i].data.lifetime.balance
+        user.lifetime.earnings = playerData[i].data.lifetime.earnings
+        user.lifetime.market_gains = playerData[i].data.lifetime["market gains"]
         arr.push(user)
     };
     return arr
@@ -296,11 +297,27 @@ async function fetchTopServers() {
 };
 
 
-
 async function updateTopServers() {
-    const sortedServers = await fetchTopServers();
+    let sortedServers = await fetchTopServers();
+    if (sortedServers.length < 25) {
+        sortedServers = await fetchTopServers();
+    };
     await saveToJSONFile(sortedServers, './output/topServers.json');
     console.log('Updated top servers leaderboard');
+};
+
+
+function getServerAndStats () {
+    const arr = [];
+    for (let i = 0; i < serverData.length; i++) {
+        let server = {};
+        // Initial info
+        server.name = serverData[i].serverName
+        server.iconURL = serverData[i].iconURL
+        server.balance = serverData[i].data.balance
+        arr.push(server)
+    };
+    return arr
 };
 
 // Call the function immediately upon start
@@ -309,5 +326,7 @@ updateTopServers();
 
 // Set an interval to call the function every hour
 setInterval(updateTopPlayers, 3600000);
+setInterval(updateTopServers, 3600000);
 
-export { getPlayerIdAndStats }
+export { getPlayerIdAndStats, getServerAndStats }
+

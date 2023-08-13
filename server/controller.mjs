@@ -6,8 +6,8 @@ const PORT = process.env.PORT;
 const app = express();
 app.use(express.json())
 
-// Retrieve controller
-app.get('/topleaderboard', (req, res) => {
+// Retrieve player leaderboard
+app.get('/playerleaderboard', (req, res) => {
     const players = leaderboard.getPlayerIdAndStats();
 
     if (players && players.length > 0) {
@@ -16,6 +16,9 @@ app.get('/topleaderboard', (req, res) => {
         res.status(404).json({ Error: 'No players found.' });
     }
 });
+
+// Retrieve server leaderboard
+app.get('')
  
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}.`)
