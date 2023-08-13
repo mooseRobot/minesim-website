@@ -19,6 +19,7 @@ function Leaderboard() {
         <h2>Player Leaderboard</h2>
         <NewLeaderboard players={leaderboard} />
         &nbsp;
+        {/* To do: Create two tabs, player and server left and right of each other */}
         <h2>Server Leaderboard</h2>
         </>
     )

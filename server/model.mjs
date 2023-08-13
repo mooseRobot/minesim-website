@@ -26,7 +26,14 @@ db.once("open", (err) => {
 // Connect to discord
 const { token } = process.env.DISCORD_TOKEN;
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+		GatewayIntentBits.GuildMembers,
+	],
+});
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
     client.user.setActivity('/mine', { type: 'PLAYING' });
@@ -174,7 +181,6 @@ function getPlayerIdAndStats () {
     return arr
 };
 
-
 async function fetchTopPlayers() {
     const topPlayerPipeline = [
         {
@@ -211,13 +217,17 @@ async function fetchTopPlayers() {
 };
 
 async function saveToJSONFile(data, filename) {
+    if (!data) {
+        console.error("Data is undefined or null. Cannot write to file.");
+        return;
+    };
     await fs.writeFile(filename, JSON.stringify(data, null, 4));
-    console.log('Updated top players leaderboard')
 };
 
 async function updateTopPlayers() {
     const sortedUsers = await fetchTopPlayers();
     await saveToJSONFile(sortedUsers, './output/topPlayers.json');
+    console.log('Updated top players leaderboard');
 };
 
 
@@ -228,6 +238,10 @@ async function updateTopPlayers() {
 // ********************************
 
 const serverSchema = new mongoose.Schema({
+    _id: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+      },
     server: {
       type: Number,
       required: true
@@ -240,12 +254,58 @@ const serverSchema = new mongoose.Schema({
     }
   });
   
-  const Server = mongoose.model('Server', serverSchema);
+const Server = mongoose.model('Server', serverSchema, 'servers');
+
+async function fetchTopServers() {
+    const topServerPipeline = [
+        {
+            $sort: { "data.balance": -1 }
+        },
+        {
+            $limit: 25
+        }
+    ];
+
+    const results = await Server.aggregate(topServerPipeline).exec();
+    const augmentedResults = [];
+
+    for (let server of results) {
+        try {
+            const guild = await client.guilds.fetch(server.server.toString());
+            server.serverName = guild.name;
+            server.iconURL = guild.iconURL({});
+            if (server.iconURL === null) {
+                server.iconURL = 'https://www.freepnglogos.com/uploads/discord-logo-png/seven-kingdoms-9.png'
+            }
+            augmentedResults.push(server);
+        } catch (err) {
+            console.log('Error occurred:', err);
+
+            if (err.code && err.code === 10004) {
+                try {
+                    await Server.deleteOne({ _id: server._id });
+                    console.log(`Server with ID ${server.server} has been removed from the database.`);
+                } catch (deleteErr) {
+                    console.log('Error while deleting server:', deleteErr);
+                }
+            }
+        }
+    }
+
+    return augmentedResults;
+};
 
 
+
+async function updateTopServers() {
+    const sortedServers = await fetchTopServers();
+    await saveToJSONFile(sortedServers, './output/topServers.json');
+    console.log('Updated top servers leaderboard');
+};
 
 // Call the function immediately upon start
 updateTopPlayers();
+updateTopServers();
 
 // Set an interval to call the function every hour
 setInterval(updateTopPlayers, 3600000);

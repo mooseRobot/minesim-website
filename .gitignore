@@ -3,3 +3,4 @@ frontend/.env
 server/node_modules
 server/.env
 server/output/topPlayers.json
+server/output/topServers.json
