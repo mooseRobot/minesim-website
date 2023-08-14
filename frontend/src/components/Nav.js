@@ -1,47 +1,24 @@
 // Navigate from page to page
 
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../images/MineSim.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
-
-
-function Nav() {
-  return (
-    <header>
-      <div className='container'>
-        {/* Home button */}
-        <a href='http://localhost:8000/'>
-          <img src={logo} className='logo' alt='logo'/>
-        </a>
-
-          <nav>
-              <ul>
-                <li><Link to="/">About</Link></li>
-                {/* Patreon */}
-                <li><Link to="/">Premium</Link></li>
-                <li><Link to="/leaderboard">Leaderboard</Link></li>
-                <li><Link to="/">Support Server</Link></li>
-                <li><Link to="/">Vote</Link></li>
-              </ul>
-
-          </nav>
-      </div>
-    </header>
-
-  );
-}
+import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
 
 function NavBar() {
   const [click, setClick] = React.useState(false);
 
-  const handleClick = () => setClick(!click);
-  const Close = () => setClick(false);
+  const handleClick = () => {
+    setClick(!click);
+  };
+  const Close = () => {
+    setClick(false);
+  };
 
   return (
     <div>
-      <div className={click ? "main-container" : ""} onClick={Close} />
+      <div className={click ? "main-container" : ""} onClick={()=>Close()} />
       <nav className="navbar" onClick={e => e.stopPropagation()}>
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
