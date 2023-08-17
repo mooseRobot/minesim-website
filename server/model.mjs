@@ -255,8 +255,10 @@ const serverSchema = new mongoose.Schema({
     }
   });
   
-const Server = mongoose.model('Server', serverSchema, 'servers');
+const Server = mongoose.model('Server', serverSchema, 'servers_backup');
 
+// Need to upload data again, deleted a lot of data.
+// Can be found in documents/server.json
 async function fetchTopServers() {
     const topServerPipeline = [
         {
@@ -293,6 +295,7 @@ async function fetchTopServers() {
             }
             augmentedResults.push(server);
         } catch (err) {
+            console.log(server._id)
             console.log('Error occurred:', err);
 
             if (err.code && err.code === 10004) {
