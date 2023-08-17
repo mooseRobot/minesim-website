@@ -17,6 +17,11 @@ header {
   background-color: #1d2026;
 }
 
+h1 {
+  font-size: xx-large;
+  color: white;
+}
+
 .pages {
   color: #282c34;
   text-align: center;

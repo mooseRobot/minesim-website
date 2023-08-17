@@ -4,6 +4,7 @@ import { inject } from '@vercel/analytics';
 
 // Import pages
 import Nav from './components/Nav.js'
+import About from './pages/About';
 import Leaderboard from './pages/Leaderboard.js'
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
         <main>
         <div className="pages">
           <Routes>
-            <Route exact path="/" />
+            <Route exact path="/" element={<About />}/>
             <Route path="/premium" />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/server" />
