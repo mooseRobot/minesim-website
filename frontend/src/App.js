@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { inject } from '@vercel/analytics';
 
 // Import pages
 import Nav from './components/Nav.js'
 import Leaderboard from './pages/Leaderboard.js'
 
 function App() {
+  inject();
   return (
     <div>
       <BrowserRouter>
