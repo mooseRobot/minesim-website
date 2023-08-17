@@ -59,7 +59,7 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/server"
+                to="https://discord.gg/488NvtTzkE"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
@@ -69,7 +69,7 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/vote"
+                to="https://top.gg/bot/1043441355847901214/vote"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}

@@ -21,8 +21,8 @@ function App() {
             <Route exact path="/" element={<About />}/>
             {/* <Route path="/premium" /> */}
             <Route path="/leaderboard" element={<Leaderboard />} />
-            <Route path="/server" />
-            <Route path="/vote" />
+            {/* <Route path="/server" /> */}
+            {/* <Route path="/vote" /> */}
           </Routes>
         </div>
 
