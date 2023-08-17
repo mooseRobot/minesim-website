@@ -255,7 +255,7 @@ const serverSchema = new mongoose.Schema({
     }
   });
   
-const Server = mongoose.model('Server', serverSchema, 'servers_backup');
+const Server = mongoose.model('Server', serverSchema, 'servers');
 
 // Need to upload data again, deleted a lot of data.
 // Can be found in documents/server.json
