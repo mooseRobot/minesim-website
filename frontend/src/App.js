@@ -19,7 +19,7 @@ function App() {
         <div className="pages">
           <Routes>
             <Route exact path="/" element={<About />}/>
-            <Route path="/premium" />
+            {/* <Route path="/premium" /> */}
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/server" />
             <Route path="/vote" />

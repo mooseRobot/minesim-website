@@ -39,7 +39,7 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/premium"
+                to="https://www.patreon.com/MineSim"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
