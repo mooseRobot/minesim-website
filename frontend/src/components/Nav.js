@@ -32,7 +32,6 @@ function NavBar() {
                 to="/"
                 activeClassName="active"
                 className="nav-links"
-                onClick={handleClick}
               >
                 About
               </NavLink>
@@ -42,7 +41,6 @@ function NavBar() {
                 to="/premium"
                 activeClassName="active"
                 className="nav-links"
-                onClick={handleClick}
               >
                 Premium
               </NavLink>
@@ -52,7 +50,6 @@ function NavBar() {
                 to="/Leaderboard"
                 activeClassName="active"
                 className="nav-links"
-                onClick={handleClick}
               >
                 Leaderboard
               </NavLink>
@@ -62,7 +59,6 @@ function NavBar() {
                 to="/server"
                 activeClassName="active"
                 className="nav-links"
-                onClick={handleClick}
               >
                 Support Server
               </NavLink>
@@ -72,7 +68,6 @@ function NavBar() {
                 to="/vote"
                 activeClassName="active"
                 className="nav-links"
-                onClick={handleClick}
               >
                 Vote
               </NavLink>

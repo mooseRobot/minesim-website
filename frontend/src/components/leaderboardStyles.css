@@ -26,7 +26,8 @@ h2 {
 
 .leaderboardContainer {
   max-width: 1000px; 
-  background-color: black;
+  /* Temporary bg color. Original black */
+  background-color: #13161c; 
   margin: auto;
   font-family: 'Amatic SC';
   margin: auto;
@@ -80,6 +81,7 @@ h2 {
         background: #ffc500;
         border-radius: 50%;
         position: absolute;
+        font-size: 20px;
         right: 0;
         font-family: sans-serif;
         text-align: center;
@@ -112,6 +114,7 @@ h2 {
 
       &:after {
         content: '2';
+        font-size: 20px;
         width: 30px;
         height: 30px;
         background: #d4d4d4;
@@ -148,6 +151,7 @@ h2 {
 
       &:after {
         content: '3';
+        font-size: 20px;
         width: 30px;
         height: 30px;
         background: #ab6528;

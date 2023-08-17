@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: #b5fac7;
+  background-color: #282c34;
 }
 
 header {
@@ -18,7 +18,7 @@ header {
 }
 
 .pages {
-  color: #316685;
+  color: #282c34;
   text-align: center;
   font-size: calc(1.5rem + 2vw);
   margin-top: 10%;
@@ -27,7 +27,7 @@ header {
 }
 
 .navbar {
-  background-color: #1f5156;
+  background-color: #1d2026;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -100,12 +100,12 @@ header {
 
 .nav-item:hover:after {
   width: 100%;
-  background: #ffdd40;
+  background: #04aa6d;
 }
 
 .nav-item.active {
-  color: #ffdd40;
-  border: 1px solid #ffdd40;
+  color: #b8b8b8;
+  border: 1px solid #b8b8b8;
 }
 
 .nav-icon {
@@ -134,7 +134,7 @@ header {
     z-index: 1;
   }
   .nav-item .active {
-    color: #ffdd40;
+    color: #b8b8b8;
     border: none;
   }
   .nav-links {
@@ -151,14 +151,8 @@ header {
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: #ffdd40;
+    color: #F5F5F5;
   }
-}
-
-/* header::after {
-  content: '';
-  display: table;
-  clear: both;
 }
 
 footer {
@@ -169,6 +163,14 @@ footer {
   padding-left: 3%;
   font-size: 15px;
 }
+
+/* header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+
 
 body {
   margin: 0;
