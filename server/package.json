@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon controller.mjs",
-    "vercel-build": "echo hello"
+    "start": "nodemon controller.mjs"
   },
   "keywords": [],
   "author": "",
