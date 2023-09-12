@@ -12,14 +12,7 @@ body {
     padding: 0 15%;
 }
 
-/* Header/Nav */
-header {
-    background-color: #1f2937;
-    display: flex;
-    justify-content: space-between;
-    padding: 16px;
-    align-items: center;
-}
+
 
 .sticky {
     position: fixed;
@@ -41,18 +34,6 @@ a {
     color: #e5e7eb;
 }
 
-.header-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-}
-
-.logo {
-    flex: none;
-    padding-left: 15%;
-}
-
 
 /* Content */
 .content {
@@ -63,7 +44,7 @@ a {
 .content-top {
     display: flex;
     justify-content: space-between;
-    background-color: #1f2937;
+    background-color: #282c34;
     padding-top: 75px;
     padding-bottom: 150px;
 }
@@ -106,6 +87,10 @@ a {
 
 
 /* Content Info */
+.content-info-title, .content-info {
+    background-color: white;
+}
+
 .content-info-title {
     color: #1f2937;
     font-weight: 1000;
