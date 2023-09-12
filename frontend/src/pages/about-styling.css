@@ -54,6 +54,7 @@ a {
     align-items: flex-start;
     flex-direction: column;
     width: 550px;
+    margin-right: 35px;
 }
 
 .title {
@@ -88,7 +89,7 @@ a {
 
 /* Content Info */
 .content-info-title, .content-info {
-    background-color: white;
+    background-color: #e5e7eb;
 }
 
 .content-info-title {
@@ -117,7 +118,7 @@ a {
 
 /* Quote */
 .quote-container {
-    background-color: #e5e7eb;
+    background-color: #282c34;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -127,7 +128,7 @@ a {
 }
 
 .author, .quote {
-    color: #1f2937;
+    color: white;
 }
 
 .quote {
@@ -146,6 +147,7 @@ a {
 
 /* Call to action */
 .call-to-action {
+    background-color: #e5e7eb;
     display: flex;
     justify-content: center;
     align-items: center;
