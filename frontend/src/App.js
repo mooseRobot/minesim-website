@@ -16,7 +16,6 @@ function App() {
         <Nav />
 
         <main>
-        <div className="pages">
           <Routes>
             <Route exact path="/" element={<About />}/>
             {/* <Route path="/premium" /> */}
@@ -24,7 +23,6 @@ function App() {
             {/* <Route path="/server" /> */}
             {/* <Route path="/vote" /> */}
           </Routes>
-        </div>
 
         </main>
 
