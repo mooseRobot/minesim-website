@@ -1,15 +1,7 @@
+
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "controller.mjs",
-        "use": "@now/node"
-      }
-    ],
-    "routes": [
-        {
-          "src": "/(.*)",
-          "dest": "controller.mjs"
-        }
-      ]
+  "rewrites": [
+    { "source": "/playerleaderboard", "destination": "/playerleaderboard" },
+    { "source": "/serverleaderboard", "destination": "/serverleaderboard" }
+  ]
 }
