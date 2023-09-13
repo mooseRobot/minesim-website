@@ -39,6 +39,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
+                target={"_blank"}
+                rel={"noopener noreferrer"}
                 to="https://www.patreon.com/MineSim"
                 activeClassName="active"
                 className="nav-links"
@@ -59,6 +61,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
+                target={"_blank"}
+                rel={"noopener noreferrer"}
                 to="https://discord.gg/488NvtTzkE"
                 activeClassName="active"
                 className="nav-links"
@@ -69,6 +73,8 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
+                target={"_blank"}
+                rel={"noopener noreferrer"}
                 to="https://top.gg/bot/1043441355847901214/vote"
                 activeClassName="active"
                 className="nav-links"
