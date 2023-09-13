@@ -20,7 +20,7 @@ db.once("open", (err) => {
         res.status(500).json({ error: "500:Connection to server failed." });
     } else {
         console.log("Successfully connected to MongoDB.")
-    };
+    }
 });
 
 
@@ -178,7 +178,7 @@ function getPlayerIdAndStats () {
         user.lifetime.earnings = playerData[i].data.lifetime.earnings
         user.lifetime.market_gains = playerData[i].data.lifetime["market gains"]
         arr.push(user)
-    };
+    }
     return arr
 };
 
@@ -207,7 +207,7 @@ async function fetchTopPlayers() {
             player.username = user.username;
             player.avatarURL = user.displayAvatarURL({ format: 'png', dynamic: true });
             augmentedResults.push(player);
-        };
+        }
 
         return augmentedResults;
 
@@ -215,21 +215,21 @@ async function fetchTopPlayers() {
         console.log('Error occurred:', err);
         return null;
     }
-};
+}
 
 async function saveToJSONFile(data, filename) {
     if (!data) {
         console.error("Data is undefined or null. Cannot write to file.");
         return;
-    };
+    }
     await fs.writeFile(filename, JSON.stringify(data, null, 4));
-};
+}
 
 async function updateTopPlayers() {
     const sortedUsers = await fetchTopPlayers();
     await saveToJSONFile(sortedUsers, './output/topPlayers.json');
     console.log('Updated top players leaderboard');
-};
+}
 
 
 // ********************************

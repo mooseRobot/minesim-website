@@ -1,6 +1,6 @@
 // Top 25 players Leaderboard
 
-import { React, useState, useEffect } from 'react';
+import {React, useEffect, useState} from 'react';
 import PlayerLeaderboard from '../components/PlayerLeaderboard.js';
 import ServerLeaderboard from '../components/ServerLeaderboard.js';
 
@@ -20,17 +20,21 @@ function Leaderboard() {
         setServerLeaderboardList(data);
     };
 
-    useEffect(() => { loadPlayerLeaderboard(); }, [])
-    useEffect(() => { loadServerLeaderboard(); }, [])
+    useEffect(() => {
+        loadPlayerLeaderboard();
+    }, [])
+    useEffect(() => {
+        loadServerLeaderboard();
+    }, [])
 
     return (
         <>
-        <h2>Player Leaderboard</h2>
-        <PlayerLeaderboard players={playerLeaderboardList} />
-        &nbsp;
-        {/* To do: Create two tabs, player and server left and right of each other */}
-        <h2>Server Leaderboard</h2>
-        <ServerLeaderboard servers={serverLeaderboardList} />
+            <h2>Player Leaderboard</h2>
+            <PlayerLeaderboard players={playerLeaderboardList}/>
+            &nbsp;
+            {/* To do: Create two tabs, player and server left and right of each other */}
+            <h2>Server Leaderboard</h2>
+            <ServerLeaderboard servers={serverLeaderboardList}/>
         </>
     )
 }
