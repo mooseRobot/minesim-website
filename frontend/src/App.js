@@ -29,12 +29,24 @@ function App() {
       </BrowserRouter>
 
       <footer>
-        <p>&copy; MineSim</p>
-        <p>github</p>
-        <p>discord server</p>
-        <p>patreon</p>
-        <p>privacy policy</p>
-        <p>contact us</p>
+        <div className={'copyright'}>
+            <p>&copy; MineSim</p>
+        </div>
+        <div className={'external-links'}>
+            <div className={'social'}>
+                <p><b>Socials</b></p>
+                {/* Add classes */}
+                <a href={'https://github.com/mooseRobot/minesim-website'} target={'_blank'}>GitHub</a>
+                <a href={''}>Discord server</a>
+                <p>Patreon</p>
+            </div>
+            <div className={'legal'}>
+                <p><b>Legal</b></p>
+                <p>Privacy policy</p>
+                <p>Contact us</p>
+            </div>
+        </div>
+
       </footer>
 
     </div>

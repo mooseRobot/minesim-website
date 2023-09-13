@@ -167,11 +167,47 @@ footer {
   text-align: left;
   padding-left: 3%;
   font-size: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .sticky {
   position: fixed;
   top: 0;
+}
+
+.copyright, .external-links {
+  margin: 0 10% 0 10%;
+}
+
+.copyright {
+  /*border: red solid;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.external-links {
+  border: red solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social, .legal {
+  margin: 0 40px 0 20px;
+  font-size: 16px;
+}
+
+.social {
+  border: red solid;
+}
+
+.legal {
+  border: red solid;
+}
+
+footer a {
+  font-size: 12px;
 }
 
 /* header::after {
