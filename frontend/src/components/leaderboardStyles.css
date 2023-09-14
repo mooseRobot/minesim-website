@@ -186,6 +186,7 @@ h2 {
     color: white;
     left: 50%;
     transform: translateX(-50%);
+    width: 175px;
     font-size: 22px;
   }
 
