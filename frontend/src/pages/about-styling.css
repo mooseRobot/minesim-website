@@ -43,7 +43,8 @@ a {
 
 .content-top {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 300px;
     background-color: #282c34;
     padding-top: 75px;
     padding-bottom: 150px;
@@ -53,8 +54,6 @@ a {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    width: 550px;
-    margin-right: 35px;
 }
 
 .title {
@@ -67,6 +66,7 @@ a {
 .top-subtext {
     margin-top: 5px;
     font-size: 18px;
+    width: 550px;
 }
 
 .invite-button {
@@ -88,6 +88,8 @@ a {
 
 
 /* Content Info */
+
+
 .content-info-title, .content-info {
     background-color: #e5e7eb;
 }
