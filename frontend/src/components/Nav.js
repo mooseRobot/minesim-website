@@ -47,7 +47,7 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/Leaderboard"
+                to="/leaderboard"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
