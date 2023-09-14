@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Nav from './components/Nav.js'
 import About from './pages/About';
 import Leaderboard from './pages/Leaderboard.js'
+import Terms from './pages/terms.js'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route exact path="/" element={<About />}/>
             {/* <Route path="/premium" /> */}
             <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path='terms' element={<Terms />} />
             {/* <Route path="/server" /> */}
             {/* <Route path="/vote" /> */}
           </Routes>
@@ -42,9 +44,9 @@ function App() {
             </div>
             <div className={'legal'}>
                 <p><b>Legal</b></p>
-                <a href={'https://github.com/mooseRobot/MineSim/blob/main/TERMS%20OF%20SERVICE.md'}>Terms Of Service</a>
+                <a href={'/terms'}>Terms Of Service</a>
                 <a href={'https://github.com/mooseRobot/MineSim/blob/main/PRIVACY.md'}>Privacy Policy</a>
-                <a href={"mailto:admin@minesim.net"}>Contact Ss</a>
+                <a href={"mailto:admin@minesim.net"}>Contact Us</a>
             </div>
         </div>
 
