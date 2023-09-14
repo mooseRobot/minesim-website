@@ -37,8 +37,8 @@ function App() {
                 <p><b>Socials</b></p>
                 {/* Add classes */}
                 <a href={'https://github.com/mooseRobot/minesim-website'} target={'_blank'} rel={"noopener noreferrer"}>GitHub</a>
-                <a href={''}>Discord server</a>
-                <a>Patreon</a>
+                <a href={'https://discord.gg/488NvtTzkE'} target={'_blank'} rel={"noopener noreferrer"}>Discord server</a>
+                <a href={'https://www.patreon.com/MineSim'} target={'_blank'} rel={"noopener noreferrer"}>Patreon</a>
             </div>
             <div className={'legal'}>
                 <p><b>Legal</b></p>
