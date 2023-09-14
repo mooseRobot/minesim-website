@@ -37,13 +37,14 @@ function App() {
                 <p><b>Socials</b></p>
                 {/* Add classes */}
                 <a href={'https://github.com/mooseRobot/minesim-website'} target={'_blank'} rel={"noopener noreferrer"}>GitHub</a>
-                <a href={'https://discord.gg/488NvtTzkE'} target={'_blank'} rel={"noopener noreferrer"}>Discord server</a>
+                <a href={'https://discord.gg/488NvtTzkE'} target={'_blank'} rel={"noopener noreferrer"}>Support Server</a>
                 <a href={'https://www.patreon.com/MineSim'} target={'_blank'} rel={"noopener noreferrer"}>Patreon</a>
             </div>
             <div className={'legal'}>
                 <p><b>Legal</b></p>
-                <a>Privacy policy</a>
-                <a href={"mailto:admin@minesim.net"}>Contact us</a>
+                <a href={'https://github.com/mooseRobot/MineSim/blob/main/TERMS%20OF%20SERVICE.md'}>Terms Of Service</a>
+                <a href={'https://github.com/mooseRobot/MineSim/blob/main/PRIVACY.md'}>Privacy Policy</a>
+                <a href={"mailto:admin@minesim.net"}>Contact Ss</a>
             </div>
         </div>
 
