@@ -21,7 +21,7 @@ function Terms () {
                 </p>
                 <p>
                     By accessing or using the Bot, you agree to be bound by these Terms and our
-                    <a href={'https://github.com/mooseRobot/MineSim/blob/main/PRIVACY.md'}> Privacy Policy</a>. If you
+                    <a href={'/privacy'}> Privacy Policy</a>. If you
                     do not agree to these Terms or the Privacy Policy, you may not access or use the Bot.
                 </p>
                 <p>
