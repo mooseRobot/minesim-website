@@ -7,9 +7,12 @@ function Terms () {
             <div className={'legal-title'}>
                 <h1>Terms Of Service</h1>
             </div>
+            <div className={'line-break'}></div>
             <div className={'legal-intro'}>
-                <p>Last updated: September 13th, 2023</p>
-                <p>These terms apply to the following domain and all of its subdomains.</p>
+                <p>Last updated: September 13th, 2023. <br></br>
+                    These terms apply to the following domain and all of its subdomains, including but not limited to
+                    the MineSim bot and <a href={'/'}>minesim.net</a>.
+                </p>
                 <br></br>
                 <p>
                     Welcome to MineSim (the "Bot"), a Discord bot that allows users to play games within Discord. These
@@ -47,7 +50,7 @@ function Terms () {
                         You agree to use the Bot only for lawful purposes and in accordance with these Terms. You agree
                         not to use the Bot:
                     </p>
-                    <ul>
+                    <ul className={'user-conduct'}>
                         <li>To harass, bully, or spam other users.</li>
                         <li>
                             To post or transmit any content that is defamatory, libelous, obscene, pornographic, or
@@ -129,8 +132,9 @@ function Terms () {
                     <p>
                         In the event that any owners of intellectual property used by MineSim wish for their assets to
                         be removed or have any concerns, we encourage them to reach out to us at
-                        <a href={'mailto:admin@minesim.net'}> admin@minesim.net</a>. We are committed to addressing such
-                        concerns promptly and complying with any reasonable requests to remove copyrighted materials.
+                        <a href={'mailto:contact@minesim.net'}> contact@minesim.net</a>. We are committed to addressing
+                        such concerns promptly and complying with any reasonable requests to remove copyrighted
+                        materials.
                     </p>
                 </article>
 
@@ -193,6 +197,12 @@ function Terms () {
                 <article>
                     <h2>Changes to These Terms and Conditions</h2>
                     <p>We reserve the right to change these terms of service at any time without any notice.</p>
+                </article>
+
+                <article>
+                    <h2>Contact us</h2>
+                    <p>If you have any questions about these Terms and Conditions, you can contact us: <br></br>By
+                        email: <a href={'mailto:contact@minesim.net'}>contact@minesim.net</a></p>
                 </article>
             </section>
         </div>

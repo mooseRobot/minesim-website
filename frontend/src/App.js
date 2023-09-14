@@ -59,7 +59,7 @@ function App() {
                 <p><b>Legal</b></p>
                 <a href={'/terms'}>Terms Of Service</a>
                 <a href={'https://github.com/mooseRobot/MineSim/blob/main/PRIVACY.md'}>Privacy Policy</a>
-                <a href={"mailto:admin@minesim.net"}>Contact Us</a>
+                <a href={"mailto:contact@minesim.net"}>Contact Us</a>
             </div>
         </div>
 
