@@ -9,6 +9,7 @@ import About from './pages/About';
 import Leaderboard from './pages/Leaderboard.js'
 import Terms from './pages/terms.js'
 import Privacy from './pages/privacy.js'
+import Contact from './pages/contact.js'
 
 function App() {
   return (
@@ -36,7 +37,8 @@ function App() {
             {/* <Route path="/premium" /> */}
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/terms" element={<Terms />} />
-            <Route path="/Privacy" element={<Privacy />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/contact" element={<Contact />} />
             {/* <Route path="/server" /> */}
             {/* <Route path="/vote" /> */}
           </Routes>
@@ -61,7 +63,7 @@ function App() {
                 <p><b>Legal</b></p>
                 <a href={'/terms'}>Terms Of Service</a>
                 <a href={'/privacy'}>Privacy Policy</a>
-                <a href={"mailto:contact@minesim.net"}>Contact Us</a>
+                <a href={"/contact"}>Contact Us</a>
             </div>
         </div>
 
