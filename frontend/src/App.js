@@ -20,6 +20,8 @@ function App() {
             <meta property="og:description" content="Embark on a journey to riches and glory with MineSim, the leading economic bot on Discord offering endless opportunities for fun and competition." />
             <meta property="og:type" content="website" />
             <meta property="og:url" content="https://www.minesim.net/" />
+            <meta name="twitter:title" content="MineSim - The Ultimate Discord Economic Bot" />
+            <meta name="twitter:description" content="Embark on a journey to riches and glory with MineSim, the leading economic bot on Discord offering endless opportunities for fun and competition." />
             <link rel="canonical" href="https://www.minesim.net/" />
         </Helmet>
       <Analytics />
