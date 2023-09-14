@@ -1,0 +1,57 @@
+.legal-content a, .legal-content p, .user-conduct {
+    font-size: medium;
+    font-family: Roboto, sans-serif;
+    color: rgb(180 182 193 / 90%);
+}
+
+.legal-content a {
+    color: white;
+}
+
+.legal-content  {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 70px 20px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.legal-title, .legal-intro, section {
+    width: 100%;
+}
+
+.legal-title {
+    text-align: left;
+}
+
+.line-break {
+    width: 100%;
+}
+
+p, h1, h2 {
+    margin-bottom: 16px;
+}
+
+h1, h2 {
+    text-align: left; /* Aligns text to the left */
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    color: hsla(0,0%,100%,.9);
+}
+
+.legal-intro, article {
+    text-align: left; /* Aligns text to the left */
+}
+
+.user-conduct {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
