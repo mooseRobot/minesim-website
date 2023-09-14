@@ -36,14 +36,14 @@ function App() {
             <div className={'social'}>
                 <p><b>Socials</b></p>
                 {/* Add classes */}
-                <a href={'https://github.com/mooseRobot/minesim-website'} target={'_blank'}>GitHub</a>
+                <a href={'https://github.com/mooseRobot/minesim-website'} target={'_blank'} rel={"noopener noreferrer"}>GitHub</a>
                 <a href={''}>Discord server</a>
-                <p>Patreon</p>
+                <a>Patreon</a>
             </div>
             <div className={'legal'}>
                 <p><b>Legal</b></p>
-                <p>Privacy policy</p>
-                <p>Contact us</p>
+                <a>Privacy policy</a>
+                <a>Contact us</a>
             </div>
         </div>
 

@@ -161,14 +161,14 @@ h1 {
 }
 
 footer {
-  font-family: 'Noto Sans';
   background-color: #1d2026;
   color: #f2f2f2;
   text-align: left;
   padding-left: 3%;
   font-size: 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 550px;
 }
 
 .sticky {
@@ -181,33 +181,31 @@ footer {
 }
 
 .copyright {
-  /*border: red solid;*/
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .external-links {
-  border: red solid;
   display: flex;
-  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .social, .legal {
   margin: 0 40px 0 20px;
   font-size: 16px;
-}
-
-.social {
-  border: red solid;
-}
-
-.legal {
-  border: red solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 footer a {
-  font-size: 12px;
+  font-size: 13px;
+}
+
+.external-links p {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 /* header::after {
