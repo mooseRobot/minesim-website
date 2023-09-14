@@ -34,9 +34,9 @@ function App() {
           <Routes>
             <Route exact path="/" element={<About />}/>
             {/* <Route path="/premium" /> */}
-            <Route path="/leaderboard" element={<Leaderboard />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
+            <Route exact path="/leaderboard" element={<Leaderboard />} />
+            <Route exact path="/terms" element={<Terms />} />
+            <Route exact path="/privacy" element={<Privacy />} />
             {/* <Route path="/server" /> */}
             {/* <Route path="/vote" /> */}
           </Routes>
