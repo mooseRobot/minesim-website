@@ -197,15 +197,17 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: left;
 }
 
-footer a {
+.external-links a {
   font-size: 13px;
+  margin-bottom: 5px;
 }
 
 .external-links p {
   font-size: 18px;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
 }
 
 /* header::after {
