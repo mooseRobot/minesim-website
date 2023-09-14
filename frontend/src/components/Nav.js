@@ -12,9 +12,6 @@ function NavBar() {
   const handleClick = () => {
     setClick(!click);
   };
-  const Close = () => {
-    setClick(false);
-  };
 
   return (
     <div>
