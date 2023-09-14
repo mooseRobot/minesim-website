@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Analytics } from '@vercel/analytics/react';
+import { Helmet } from 'react-helmet';
 
 // Import pages
 import Nav from './components/Nav.js'
@@ -11,6 +12,16 @@ import Terms from './pages/terms.js'
 function App() {
   return (
     <div>
+        <Helmet>
+            <title>MineSim - The Ultimate Discord Economic Bot</title>
+            <meta name="description" content="Embark on a journey to riches and glory with MineSim, the leading economic bot on Discord offering endless opportunities for fun and competition." />
+            <meta name="keywords" content="MineSim, Discord Bot, Economic Bot, Gaming, Minecraft, Discord Games, Casino Games, Stock Market Simulation, Clan System" />
+            <meta property="og:title" content="MineSim - The Ultimate Discord Economic Bot" />
+            <meta property="og:description" content="Embark on a journey to riches and glory with MineSim, the leading economic bot on Discord offering endless opportunities for fun and competition." />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://www.minesim.net/" />
+            <link rel="canonical" href="https://www.minesim.net/" />
+        </Helmet>
       <Analytics />
       <BrowserRouter>
 
