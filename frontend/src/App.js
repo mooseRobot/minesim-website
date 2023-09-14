@@ -43,7 +43,7 @@ function App() {
             <div className={'legal'}>
                 <p><b>Legal</b></p>
                 <a>Privacy policy</a>
-                <a>Contact us</a>
+                <a href="mailto:admin@minesim.net">Contact us</a>
             </div>
         </div>
 
